@@ -25,22 +25,20 @@ Things you may want to cover:
 
 ## usersテーブル 
 
-|  Column       |  Type         |  Options              |
-| ------------- | ------------- | --------------------- |
-| nickname      | string        | null: false           |
-| email         | string        | null: false           |
-| password      | string        | null: false           |
-| last_name     | string        | null: false           |
-| first_name    | string        | null: false           |
-| last_name_k   | string        | null: false           |
-| first_name_k  | string        | null: false           |
-| year          | string        | null: false           |
-| month         | string        | null: false           |
-| day           | string        | null: false           |
+|  Column             |  Type         |  Options              |
+| ------------------- | ------------- | --------------------- |
+| nickname            | string        | null: false           |
+| email               | string        | null: false           |
+| encrypted_password  | string        | null: false           | 
+| last_name           | string        | null: false           |
+| first_name          | string        | null: false           |
+| last_name_k         | string        | null: false           |
+| first_name_k        | string        | null: false           |
+| birthday            | date          | null: false           |
 
 ### Association
 - has_many :items
-
+- has_many :items_infos
 
 ## itemsテーブル
 
@@ -48,48 +46,44 @@ Things you may want to cover:
 | ------------- | ------------- | --------------------- |
 | name          | string        | null: false           |
 | text          | text          | null: false           |
-| category      | string        | null: false           |
-| state         | string        | null: false           |
-| del_fee       | string        | null: false           |
-| ship_area     | string        | null: false           |
-| ship_day      | string        | null: false           |
-| fee           | string        | null: false           |
+| category_id   | integer       | null: false           |
+| state_id      | integer       | null: false           |
+| del_fee_id    | integer       | null: false           |
+| ship_area_id  | integer       | null: false           |
+| ship_day_id   | integer       | null: false           |
+| fee           | integer       | null: false           |
 | user          | refereces     | foreign_keys: true    |
 
 <!-- imageはactive_strage -->
 
 ### Association
 - belongs_to :user
-
+- has_many :items_infos
 
 ## items_infos
 
 |  Column       |  Type         |  Options              |
 | ------------- | ------------- | --------------------- |
-| name          | string        | null: false           |
-| del_fee       | string        | null: false           |
-| fee           | string        | null: false           |
+| user          | references    | foreign_keys: true    |
+| item          | references    | foreign_keys: true    |
 | ship_info     | references    | foreign_keys: true    |
 
-<!-- imageはactive_strage -->
 
 ### Association
 - has_one :ship_info
+- belongs_to :user
+- belongs_to :item
 
 ## ship_infos
 
 |  Column       |  Type         |  Options              |
 | ------------- | ------------- | --------------------- |
-| card_num      | string        | null: false           |
-| e_month       | string        | null: false           |
-| e_year        | string        | null: false           |
-| security_code | string        | null: false           |
-| p_code        | string        | null: false           |
-| prefectures   | string        | null: false           |
+| p_code        | integer       | null: false           |
+| prefectures_id| integer       | null: false           |
 | city          | string        | null: false           |
 | addres        | string        | null: false           |
 | building      | string        | null: false           |
-| phone_num     | string        | null: false           |
+| phone_num     | integer       | null: false           |
 | item_info     | references    | foreign_keys: true    |
 
 ### Association
