@@ -52,21 +52,20 @@ Things you may want to cover:
 | ship_area_id  | integer       | null: false           |
 | ship_day_id   | integer       | null: false           |
 | price         | integer       | null: false           |
-| user          | refereces     | foreign_keys: true    |
+| user          | refereces     | foreign_key: true     |
 
 <!-- imageはactive_strage -->
 
 ### Association
 - belongs_to :user
-- has_many :purchases
+- has_one :purchase
 
 ## purchases
 
 |  Column       |  Type         |  Options              |
 | ------------- | ------------- | --------------------- |
-| user          | references    | foreign_keys: true    |
-| item          | references    | foreign_keys: true    |
-| ship_info     | references    | foreign_keys: true    |
+| user          | references    | foreign_key: true     |
+| item          | references    | foreign_key: true     |
 
 
 ### Association
@@ -79,12 +78,12 @@ Things you may want to cover:
 |  Column       |  Type         |  Options              |
 | ------------- | ------------- | --------------------- |
 | p_code        | string        | null: false           |
-| prefectures_id| integer       | null: false           |
+| prefecture_id | integer       | null: false           |
 | city          | string        | null: false           |
 | addres        | string        | null: false           |
-| building      | string        | null: false           |
+| building      | string        |                       |
 | phone_num     | string        | null: false           |
-| purchase     | references    | foreign_keys: true    |
+| purchase      | references    | foreign_key: true     |
 
 ### Association
 
