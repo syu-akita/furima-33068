@@ -38,7 +38,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-- has_many :items_infos
+- has_many :purchases
 
 ## itemsテーブル
 
@@ -58,9 +58,9 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- has_many :items_info
+- has_many :purchases
 
-## items_infos
+## purchases
 
 |  Column       |  Type         |  Options              |
 | ------------- | ------------- | --------------------- |
@@ -84,8 +84,8 @@ Things you may want to cover:
 | addres        | string        | null: false           |
 | building      | string        | null: false           |
 | phone_num     | string        | null: false           |
-| item_info     | references    | foreign_keys: true    |
+| purchase     | references    | foreign_keys: true    |
 
 ### Association
 
-- belongs_to :item_info
+- belongs_to :purchase
