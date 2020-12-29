@@ -51,14 +51,14 @@ Things you may want to cover:
 | del_fee_id    | integer       | null: false           |
 | ship_area_id  | integer       | null: false           |
 | ship_day_id   | integer       | null: false           |
-| fee           | integer       | null: false           |
+| price         | integer       | null: false           |
 | user          | refereces     | foreign_keys: true    |
 
 <!-- imageはactive_strage -->
 
 ### Association
 - belongs_to :user
-- has_many :items_infos
+- has_many :items_info
 
 ## items_infos
 
@@ -78,14 +78,14 @@ Things you may want to cover:
 
 |  Column       |  Type         |  Options              |
 | ------------- | ------------- | --------------------- |
-| p_code        | integer       | null: false           |
+| p_code        | string        | null: false           |
 | prefectures_id| integer       | null: false           |
 | city          | string        | null: false           |
 | addres        | string        | null: false           |
 | building      | string        | null: false           |
-| phone_num     | integer       | null: false           |
+| phone_num     | string        | null: false           |
 | item_info     | references    | foreign_keys: true    |
 
 ### Association
 
-- belongs_to :item_infos
+- belongs_to :item_info
