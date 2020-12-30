@@ -1,0 +1,2 @@
+class ShipArea < ApplicationRecord
+end
