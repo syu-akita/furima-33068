@@ -14,5 +14,8 @@ class User < ApplicationRecord
     :first_name
   end
 
-  
+  with_options presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/} do
+    :last_name_k
+    :first_name_k
+  end 
 end
