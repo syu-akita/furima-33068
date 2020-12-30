@@ -2,6 +2,10 @@ require 'rails_helper'
 
 Rspec.describe User, type: :model do
   describe "ユーザー新規登録" do
+    before do
+      @user = FactoryBot.build(:user)
+    end
+    
     it "全ての項目が入力されていると登録できる" do
     end
     it "nicknameが空だと登録できない" do
