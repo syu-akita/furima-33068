@@ -48,7 +48,7 @@ Things you may want to cover:
 | text          | text          | null: false           |
 | category_id   | integer       | null: false           |
 | state_id      | integer       | null: false           |
-| del_fee_id    | integer       | null: false           |
+| del_price_id  | integer       | null: false           |
 | ship_area_id  | integer       | null: false           |
 | ship_day_id   | integer       | null: false           |
 | price         | integer       | null: false           |

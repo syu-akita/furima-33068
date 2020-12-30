@@ -1,0 +1,2 @@
+class DellPrice < ApplicationRecord
+end
