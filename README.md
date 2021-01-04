@@ -52,7 +52,7 @@ Things you may want to cover:
 | ship_area_id  | integer       | null: false           |
 | ship_day_id   | integer       | null: false           |
 | price         | integer       | null: false           |
-| user          | refereces     | foreign_key: true     |
+| user          | references    | foreign_key: true     |
 
 <!-- imageはactive_strage -->
 
@@ -80,7 +80,7 @@ Things you may want to cover:
 | p_code        | string        | null: false           |
 | prefecture_id | integer       | null: false           |
 | city          | string        | null: false           |
-| addres        | string        | null: false           |
+| address       | string        | null: false           |
 | building      | string        |                       |
 | phone_num     | string        | null: false           |
 | purchase      | references    | foreign_key: true     |
