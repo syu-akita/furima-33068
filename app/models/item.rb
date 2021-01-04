@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   belongs_to :dell_price
   belongs_to :ship_area
   belongs_to :ship_day
+  belongs_to :user
 
   validates :name, :text, :price, presence: true
 
