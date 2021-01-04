@@ -9,7 +9,11 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   validates :name, :text, :price,:image, presence: true
-
+  validates :name, length: {maximum: 40 }
+  validates :text, length: {maximum: 1000 }
+  validates :price, length: {in: 300..9999999 }
+  validates :price, numericality: {only_integer: true }
+  
   with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :state_id
