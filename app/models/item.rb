@@ -6,8 +6,9 @@ class Item < ApplicationRecord
   belongs_to :ship_area
   belongs_to :ship_day
   belongs_to :user
+  has_one_attached :image
 
-  validates :name, :text, :price, presence: true
+  validates :name, :text, :price,:image, presence: true
 
   with_options numericality: { other_than: 1 } do
     validates :category_id
