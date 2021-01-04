@@ -13,7 +13,6 @@ class Item < ApplicationRecord
   validates :text, length: {maximum: 1000 }
   validates :price, numericality: {:greater_than_or_equal_to => 300}
   validates :price, numericality: {:less_than_or_equal_to => 9999999}
-  validates :price, numericality: {only_integer: true }
   
   with_options numericality: { other_than: 1 } do
     validates :category_id
@@ -22,4 +21,6 @@ class Item < ApplicationRecord
     validates :ship_area_id
     validates :ship_day_id
   end
+
+  validates :price, format: {with: /\A[-]?[0-9]+(\.[0-9]+)?\z/ }
 end
