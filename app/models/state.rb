@@ -1,5 +1,5 @@
 class State < ActiveHash::Base
-  self.date = [
+  self.data = [
     {id: 1, condition: '---'},
     {id: 2, condition: '新品、未使用'},
     {id: 3, condition: '未使用に近い'},
