@@ -11,5 +11,4 @@ window.addEventListener("load", () => {
     const valueResult = inputValue / 10
     salesProfit.innerHTML = (Math.floor(inputValue - valueResult));
   })
-  priceInput.value = "";
 })
