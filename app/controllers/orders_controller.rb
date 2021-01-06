@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    binding.pry
     @item_order = ItemOrder.new(order_params)
     if @item_order.valid?
       @item_order.save
