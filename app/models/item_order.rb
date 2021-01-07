@@ -12,6 +12,7 @@ class ItemOrder
 
   validates :p_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
   validates :ship_area, numericality: {other_than: 1}
+  validates :phone_num, format: {with: /\A\d{10,11}\z/}
 
   def save
     item = Item.create(name: name, text: text, price: price, category_id: category_id, state_id: state_id, dell_price_id: dell_price_id, ship_area_id: ship_area, ship_day_id: ship_day_id)
