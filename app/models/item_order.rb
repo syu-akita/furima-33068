@@ -1,6 +1,6 @@
 class ItemOrder
   include ActiveModel::Model
-  attr_accessor :p_code, :city, :address, :building, :phone_num, :ship_area_id
+  attr_accessor :p_code, :city, :address, :building, :phone_num, :ship_area_id, :token, :user_id, :item_id
 
   with_options presence: true do
     validates :p_code
@@ -8,6 +8,7 @@ class ItemOrder
     validates :address
     validates :phone_num
     validates :ship_area_id
+    validates :token
   end
 
   validates :p_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
@@ -15,7 +16,7 @@ class ItemOrder
   validates :phone_num, format: {with: /\A\d{10,11}\z/}
 
   def save
-    item = Item.create(name: name, text: text, price: price, category_id: category_id, state_id: state_id, dell_price_id: dell_price_id, ship_area_id: ship_area, ship_day_id: ship_day_id)
-    ShipInfo.create(p_code: p_code, city: city, address: address, phone_num: phone_num, ship_area_id: ship_area_id, item_id: item.id)
+    order = Order.create!(user_id: user_id, item_id: item_id)
+    ShipInfo.create!(p_code: p_code, city: city, address: address, building: building, phone_num: phone_num, ship_area_id: ship_area_id, order_id: order.id)
   end
 end
