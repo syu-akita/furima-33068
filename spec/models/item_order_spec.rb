@@ -37,27 +37,27 @@ RSpec.describe ItemOrder, type: :model do
     it 'p_codeが半角のハイフンを含んだ正しい形式でないと保存できない' do
       @item_order.p_code = '11111111'
       @item_order.valid?
-      expect(@item_order.errors.full_messages).to include("P code is invalid")
+      expect(@item_order.errors.full_messages).to include('P code is invalid')
     end
     it 'phone_numはハイフンがあると登録できない' do
       @item_order.phone_num = '080-4455-3322'
       @item_order.valid?
-      expect(@item_order.errors.full_messages).to include("Phone num is invalid")
+      expect(@item_order.errors.full_messages).to include('Phone num is invalid')
     end
     it 'phone_numは11桁以内出ないと登録できない' do
       @item_order.phone_num = '222222222222'
       @item_order.valid?
-      expect(@item_order.errors.full_messages).to include("Phone num is invalid")
+      expect(@item_order.errors.full_messages).to include('Phone num is invalid')
     end
     it 'phone_numは半角英数を含むと登録できない' do
       @item_order.phone_num = 'abc11223300'
       @item_order.valid?
-      expect(@item_order.errors.full_messages).to include("Phone num is invalid")
+      expect(@item_order.errors.full_messages).to include('Phone num is invalid')
     end
     it 'ship_area_idが1だと登録できない' do
       @item_order.ship_area_id = 1
       @item_order.valid?
-      expect(@item_order.errors.full_messages).to include("Ship area must be other than 1")
+      expect(@item_order.errors.full_messages).to include('Ship area must be other than 1')
     end
     it 'buildingは空でも登録できる' do
       @item_order.building = nil
@@ -71,7 +71,7 @@ RSpec.describe ItemOrder, type: :model do
     it 'tokenが半角英数を用いてないと登録できない' do
       @item_order.token = 'AB7dosあ'
       @item_order.valid?
-      expect(@item_order.errors.full_messages).to include("Token is invalid")
+      expect(@item_order.errors.full_messages).to include('Token is invalid')
     end
   end
 end
