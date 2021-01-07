@@ -63,5 +63,15 @@ RSpec.describe ItemOrder, type: :model do
       @item_order.building = nil
       expect(@item_order).to be_valid
     end
+    it 'tokenが空だと登録できない' do
+      @item_order.token = nil
+      @item_order.valid?
+      expect(@item_order.errors.full_messages).to include("Token can't be blank")
+    end
+    it 'tokenが半角英数を用いてないと登録できない' do
+      @item_order.token = 'AB7dosあ'
+      @item_order.valid?
+      expect(@item_order.errors.full_messages).to include("Token is invalid")
+    end
   end
 end

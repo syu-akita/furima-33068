@@ -6,5 +6,6 @@ FactoryBot.define do
     phone_num             { '08033994455' }
     building              { 'アパホテル' }
     ship_area_id          { 20 }
+    token                 { 'ks1122jjfk99' }
   end
 end

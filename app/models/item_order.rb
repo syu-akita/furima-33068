@@ -14,6 +14,7 @@ class ItemOrder
   validates :p_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
   validates :ship_area_id, numericality: {other_than: 1}
   validates :phone_num, format: {with: /\A\d{10,11}\z/}
+  validates :token, format: {with: /\A[a-z0-9]+\z/}
 
   def save
     order = Order.create!(user_id: user_id, item_id: item_id)
