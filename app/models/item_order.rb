@@ -9,6 +9,8 @@ class ItemOrder
     validates :phone_num
     validates :ship_area_id
     validates :token
+    validates :user_id
+    validates :item_id
   end
 
   validates :p_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/ }
