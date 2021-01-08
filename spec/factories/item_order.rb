@@ -7,7 +7,5 @@ FactoryBot.define do
     building              { 'アパホテル' }
     ship_area_id          { 20 }
     token                 { 'ks1122jjfk99' }
-    item_id               { 1 }
-    user_id               { 2 }
   end
 end
