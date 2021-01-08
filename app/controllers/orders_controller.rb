@@ -1,13 +1,12 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :item_find
   def index
     @item_order = ItemOrder.new
-    @item = Item.find(params[:item_id])
     redirect_to root_path unless @item.order.nil?
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @item_order = ItemOrder.new(order_params)
     if @item_order.valid?
       Payjp.api_key = ENV['PAYJP_SECLET_KEY']
@@ -29,5 +28,9 @@ class OrdersController < ApplicationController
     params.require(:item_order).permit(:p_code, :city, :address, :phone_num, :ship_area_id, :building).merge(
       user_id: current_user.id, item_id: params[:item_id], token: params[:token]
     )
+  end
+
+  def item_find
+    @item = Item.find(params[:item_id])
   end
 end
