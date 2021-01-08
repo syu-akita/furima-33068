@@ -17,7 +17,7 @@ RSpec.describe ItemOrder, type: :model do
       it 'buildingは空でも登録できる' do
         @item_order.building = nil
         expect(@item_order).to be_valid
-      end  
+      end
     end
 
     context '商品購入ができない時' do
