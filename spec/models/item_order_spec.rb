@@ -14,6 +14,10 @@ RSpec.describe ItemOrder, type: :model do
       it '全ての項目が入力されていると登録できる' do
         expect(@item_order).to be_valid
       end
+      it 'buildingは空でも登録できる' do
+        @item_order.building = nil
+        expect(@item_order).to be_valid
+      end
     end
 
     context '商品購入ができない時' do
@@ -66,10 +70,6 @@ RSpec.describe ItemOrder, type: :model do
         @item_order.ship_area_id = 1
         @item_order.valid?
         expect(@item_order.errors.full_messages).to include('Ship area must be other than 1')
-      end
-      it 'buildingは空でも登録できる' do
-        @item_order.building = nil
-        expect(@item_order).to be_valid
       end
       it 'tokenが空だと登録できない' do
         @item_order.token = nil
