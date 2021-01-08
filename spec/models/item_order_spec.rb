@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe ItemOrder, type: :model do
   describe '#create' do
     before do
-      @item_order = FactoryBot.build(:item_order)
+      user = FactoryBot.build(:user)
+      item = FactoryBot.build(:item)
+      @item_order = FactoryBot.build(:item_order, user_id: 00, item_id: 00)
     end
     context '商品購入ができる時' do
       it '全ての項目が入力されていると登録できる' do
