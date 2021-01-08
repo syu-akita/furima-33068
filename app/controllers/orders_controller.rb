@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
   def create
     @item_order = ItemOrder.new(order_params)
     if @item_order.valid?
-      Payjp.api_key = ENV['PAYJP_SECLET_KEY']
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       Payjp::Charge.create(
         amount: @item.price,
         card: order_params[:token],
