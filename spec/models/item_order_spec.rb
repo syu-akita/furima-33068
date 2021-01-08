@@ -10,7 +10,7 @@ RSpec.describe ItemOrder, type: :model do
         expect(@item_order).to be_valid
       end
     end
-    
+
     context '商品購入ができない時' do
       it 'p_codeが空だと登録できない' do
         @item_order.p_code = nil
@@ -70,6 +70,16 @@ RSpec.describe ItemOrder, type: :model do
         @item_order.token = nil
         @item_order.valid?
         expect(@item_order.errors.full_messages).to include("Token can't be blank")
+      end
+      it 'user_idが空だと登録できない' do
+        @item_order.user_id = nil
+        @item_order.valid?
+        expect(@item_order.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空だと登録できない' do
+        @item_order.item_id = nil
+        @item_order.valid?
+        expect(@item_order.errors.full_messages).to include("Item can't be blank")
       end
     end
   end
